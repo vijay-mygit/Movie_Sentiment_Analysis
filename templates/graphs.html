@@ -5,8 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Analysis on IMDB data from 2000 - 2020</title>
+  <title>Cinemetric Analysis on Movies from 2000 - 2020</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> -->
+        
+        <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+
+        <!-- <link rel="stylesheet" href="/static/css/bootstrap.min.css"> -->
+        <!-- <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css"> -->
+        <!-- <link rel="stylesheet" href="/static/css/fontAwesome.css"> -->
+        <!-- <link rel="stylesheet" href="/static/css/hero-slider.css"> -->
+        <!-- <link rel="stylesheet" href="/static/css/owl-carousel.css"> -->
+        <link rel="stylesheet" href="/static/css/templatemo-style.css">
+        <!-- <link rel="stylesheet" href="/static/css/lightbox.css"> -->
+
+        <!-- <script src="/static/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script> -->
   
  <!--  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
@@ -25,57 +43,59 @@
 
 <body>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Analysis on IMDB data</h1>
-        <h2><strong>Movies released during 2000 - 2020</strong></h2>
-        <p>A Project by VARS</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Please select a Genre from drop-down</h5>
+  <div class="header">
+    <div class="container">
+      <nav class="navbar navbar-inverse" role="navigation"style="background: gray;"> 
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand scroll-top"style="padding-bottom: 5pc;"><em>Cine</em>metric</a>
+          
+        </div> 
+        
+        <div>
+          <h5 style="color: white;">Please select a Genre to Analyze</h5>
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
+        </div>  
+                            
+      </nav>      
+    </div>
+  </div>
         <!-- <div class="panel panel-primary">
           <div class="panel-heading">
             <h3 class="panel-title">Top Firm Info</h3>
           </div>
           <div id="sample-metadata" class="panel-body"></div>
         </div> -->
-      </div>
-      <div class="col-md-10">
-        <div id="bar"></div>
-      </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div id="bar"></div>
+    </div>
+  </div>
       <!-- <div class="col-md-6">
         <div id="gauge"></div>
       </div> -->
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div id="histogram"></div>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div id="scatter1"></div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="histogram"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div id="scatter1"></div>
-      </div>
       <!-- <div class="col-md-6">
         <div id="scatter2"></div>
       </div> -->
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="time1"></div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-          <div id="time1"></div>
-        </div>
         <!-- <div class="col-md-6">
           <div id="time2"></div>
         </div> -->
-      </div>
   </div>
+    
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -85,12 +105,12 @@
   <script src="/static/js/movies.json"></script>
   <!-- <script src="./static/js/config.js"></script> -->
   <!-- <script type="text/javascript" src="static/js/leaflet-heat.js"></script> -->
-  <footer class="page-footer font-small blue-grey lighten-5">
-    <div style="background-color: #21d192;">
-    <div class="footer-copyright text-center text-black-50 py-3">© 2020 Copyright:
-      <p>VARS (Vijay, Amber, Raj, Suhas)</p>
+  <!-- <footer>
+    <div style="background-color:gray">
+    <div class="footer-copyright text-center" style="color: white;">© 2020 Copyright:
+      <p style="color: orange;">CINEMETRIC</p>
     </div>
-  </footer>
+  </footer> -->
 <!-- Footer -->
   <!-- <script src="./static/js/app2.js"></script> -->
   <!-- <script src="./static/js/bonus.js"></script> -->
