@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--
+Tinker CSS Template
+https://templatemo.com/tm-506-tinker
+-->
+        <title>Movie Review Sentiment Prediction</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+        
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/static/css/fontAwesome.css">
+        <link rel="stylesheet" href="/static/css/hero-slider.css">
+        <link rel="stylesheet" href="/static/css/owl-carousel.css">
+        <link rel="stylesheet" href="/static/css/templatemo-style.css">
+        <link rel="stylesheet" href="/static/css/lightbox.css">
+
+        <script src="/static/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand scroll-top"><em>Cine</em>metric</a>
+                </div>
+                <!--/.navbar-header-->
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class="scroll-top">Home</a></li>
+                        <li><a href="#" class="scroll-link" data-id="contact-us">Predictions</a></li>
+                        <li><a href="#" class="scroll-link" data-id="portfolio">Data Journey</a></li>
+                        <li><a href="#" class="scroll-link" data-id="about">Our Team</a></li>
+                        <li><a href="#" class="scroll-link" data-id="testimonial">Testimonials</a></li>
+                        <li><a href="#" class="scroll-link" data-id="blog">Projects</a></li>                        
+                        <li><a href="#" class="scroll-link" data-id="map">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <!--/.navbar-->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.header-->
+
+
+    <div class="parallax-content baner-content" id="home">
+        <div class="container">
+            <div class="text-content">
+                <h2><em>Movie Review</em> <span>Sentiment</span> Analysis and Prediction</h2>
+                <h3 style="color: white;">This is a website to help predict the sentiment of a review for a movie.</h3>
+                <div class="primary-white-button">
+                    <a href="#" class="scroll-link" data-id="contact-us">Let's Start</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact-us">
+        <div class="container">
+            <div class="row" >
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h4>Write a Review</h4>
+                        <div class="line-dec"></div>
+                        <p>Disclamer: Our sentiment prediction may not be 100% accurate as we are still improving our models.</p>
+                        <div class="pop-button">
+                            <h4>Click here to write an honest review about a movie you watched</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="pop">
+                        <span>✖</span>
+                        <form id="contact" action="/result" method="post">
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <fieldset>
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                                  </fieldset>
+                                </div>
+                                <div class="col-md-12">
+                                  <fieldset>
+                                    <!-- <input name="email" type="email" class="form-control" id="email" placeholder="Movie name.." required=""> -->
+                                    <input name="email" type="text" class="form-control" id="email" placeholder="Movie name.." required="">
+                                  </fieldset>
+                                </div>
+                                <div class="col-md-12">
+                                  <fieldset>
+                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Review.." required=""></textarea>
+                                  </fieldset>
+                                </div>
+                                <div class="col-md-12">
+                                  <fieldset>
+                                    <button type="submit" id="form-submit" class="btn">Submit Review</button>
+                                  </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>  
+            <div style="height: 50vh;">
+                <img src="/static/img/range_sentiment.png" alt="User Image">                
+            </div>          
+        </div>
+    </div>
+
+
+    <section id="portfolio">
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="section-heading">
+                            <h4>The Journey of our Data</h4>
+                            <div class="line-dec"></div>
+                            <p>A step by step guide to how we achieved the Movie Review Analysis.</p>
+                            <div class="filter-categories">
+                                <ul class="project-filter">
+                                    <li class="filter" data-filter="all"><span>Show All</span></li>
+                                    <li class="filter" data-filter="branding"><span>Data Extraction</span></li>
+                                    <li class="filter" data-filter="graphic"><span>Data Transformation</span></li>
+                                    <li class="filter" data-filter="nature"><span>Data Visualization</span></li>
+                                    <li class="filter" data-filter="animation"><span>Machine Learning Model</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="projects-holder-3">
+                            <div class="projects-holder">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 project-item mix branding">
+                                      <div class="thumb">
+                                            <div class="image">
+                                                <a href="/static/img/Data_extraction.webp" data-lightbox="image-1"><img src="/static/img/Data_extraction.webp"></a>
+                                            </div>                                            
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix branding">
+                                      <div class="thumb">
+                                        <div class="image">
+                                                <a href="/static/img/Data_cleaning.jpeg" data-lightbox="image-1"><img src="/static/img/Data_cleaning.jpeg"></a>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix graphic">
+                                      <div class="thumb">
+                                            <div class="image">
+                                                <a href="/static/img/Data_transformation.png" data-lightbox="image-1"><img src="/static/img/Data_transformation.png"></a>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix graphic">
+                                        <div class="thumb">
+                                            <div class="image">
+                                                <a href="/static/img/Load.jpg" data-lightbox="image-1"><img src="/static/img/Load.jpg"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix nature">
+                                      <div class="thumb">
+                                            <div class="image">
+                                                <a href="/static/img/data_visualization.jpg" data-lightbox="image-1"><img src="/static/img/data_visualization.jpg"></a>
+                                            </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix nature">
+                                        <div class="thumb">
+                                            <div class="image">
+                                                <a href="/static/img/visualization.jpg" data-lightbox="image-1"><img src="/static/img/visualization.jpg"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 project-item mix animation">
+                                        <div class="thumb">
+                                            <div class="image">
+                                                <a href="/static/img/ML.jpg" data-lightbox="image-1"><img src="/static/img/ML.jpg"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </section>
+
+    <section id="about" class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <!-- <div class="icon"> -->
+                            <img src="/static/img/Suhas.jpg" alt="">
+                        <!-- </div> -->
+                        <h4>Suhas Karanth</h4>
+                        <div class="line-dec"></div>
+                        <p>Master Data Extractor</p>
+                        <p>His motto is "Torture the data & it will reveal everything"</p>
+                        <div class="primary-blue-button">
+                            <a target="_blank" href="https://www.linkedin.com/in/suhas-karanth-699a5819/" data-id="portfolio">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <!-- <div class="icon"> -->
+                            <img src="/static/img/Raj.jpg" alt="">
+                        <!-- </div> -->
+                        <h4>Raj Sisodia</h4>
+                        <div class="line-dec"></div>
+                        <p>Master Data Visualizer</p>
+                        <p>He feels "A graph is worth millions of words and dollars too!!" </p>
+                        <div class="primary-blue-button">
+                            <a target="_blank" href="https://www.linkedin.com/in/raj-sisodia/" data-id="portfolio">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <!-- <div class="icon"> -->
+                            <img src="/static/img/Amber.jpg" alt="">
+                        <!-- </div> -->
+                        <h4>Amber Sidhu</h4>
+                        <div class="line-dec"></div>
+                        <p>Master Data Engineer</p>
+                        <p>He believes "Data can be viewed in any way and its always beneficial"</p>
+                        <div class="primary-blue-button">
+                            <a target="_blank" href="https://www.linkedin.com/in/ambersidhu/" data-id="portfolio">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <!-- <div class="icon"> -->
+                            <img src="/static/img/Vijay.jpg" alt="">
+                        <!-- </div> -->
+                        <h4>Vijay Ghanapaati</h4>
+                        <div class="line-dec"></div>
+                        <p>Master Data Modeller</p>
+                        <p>He thinks "Data is the future and one can predict the future using Data"</p>
+                        <div class="primary-blue-button">
+                            <a target="_blank" href="https://www.linkedin.com/in/vijayghanapaati/" data-id="portfolio">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="testimonial">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div id="owl-testimonials" class="owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <p>“ Your Testimonial”</p>
+                                <h4>xyz</h4>
+                                <span>Company name</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <p>“ Your testimonial here ”</p>
+                                <h4>xyz</h4>
+                                <span>Company name</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <p>“ Your testimonial here ”</p>
+                                <h4>abc</h4>
+                                <span>Company name</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <p>“ Your Testimonial here ”</p>
+                                <h4>xxx</h4>
+                                <span>Company name</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="tabs-content" id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="wrapper">
+                    <div class="col-md-4">
+                        <div class="section-heading">
+                            <h4>Our Previous Work</h4>
+                            <div class="line-dec"></div>
+                            <p>We have been working on several different projects which you can connect through here. Feel free to go through them and provide a feedback.</p>
+                            <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+                                <li><a href="#tab1" class="active">AirBnb Canada Analysis</a></li>
+                                <li><a href="#tab2">Forbes2000 Companies Analysis</a></li>
+                                <li><a href="#tab3">Oscar Winner Analysis</a></li>
+                                <li><a href="#tab4">Stock market and covid-19</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <section id="first-tab-group" class="tabgroup">
+                            <div id="tab1">
+                                <img src="/static/img/blog_item_01.jpg" alt="" href="https://github.com/vijay-mygit/Airbnb" target="_blank">
+                                <div class="text-content">
+                                    <h4>Airbnb- An Exploratory Data Analysis (Canada Region)</h4>
+                                    <span><a target="_blank" href="https://github.com/vijay-mygit/Airbnb">Airbnb Analysis</a> / <a>March 2020</a></span>
+                                    <p>Looking to answer a few questions like: How Airbnb has grown in Canada over the years? Which province has more listings and is more expensive? How is the price impacted by the accommodation type that a Guest chooses?
+                                        What factors would increase the rating as a Host? Which is the best neighbourhood in each province(based on Number of listings, Price, Number of reviews, Ratings) to book an Airbnb?
+                                        In which province customers are most likely to leave reviews and for what property types?</p>
+                                </div>
+                            </div>
+                            <div id="tab2">
+                                <img src="/static/img/blog_item_02.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Analysis of Forbes Top 2000 Companies for 2019 </h4>
+                                    <span><a target="_blank" href="https://github.com/vijay-mygit/Forbes2000">Forbes2000 Companies Analysis</a> / <a>June 2020</a></span>
+                                    <p>Analysis of the Forbes2000 companies 2019 list to derive conclusions based on Profits, Market cap, Assets and Revenue.</p>
+                                </div>
+                            </div>
+                            <div id="tab3">
+                                <img src="/static/img/blog_item_03.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Oscar winner's Demographic Analysis</h4>
+                                    <span><a target="_blank" href="https://github.com/vijay-mygit/ETL-Project">Oscar Winner's Demographic Analysis</a> / <a href="#">April 2020</a></span>
+                                    <p>Exploratory data analysis to understand if the income level of the country to which the artist belongs to has any relation to the probability of them winning an Oscar.</p>
+                                </div>
+                            </div>
+                            <div id="tab4">
+                                <img src="/static/img/blog_item_04.jpg" alt="">
+                                <div class="text-content">
+                                    <h4>Stock market and Covid-19</h4>
+                                    <span><a target="_blank" href="https://github.com/sidhuamber/ETL_Project">Stock market and Covid-19 dataset</a> / <a href="#">April 2020</a></span>
+                                    <p>This data is can be used to determine the fluctuation in the stock market due to covid-19 pandemic. It is wisely said that any form of major crisis can result in fluctuation.The data can help investors to follow the stocks closely during the pandemic andcan help the major industries to compare their results with their competitors.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="map">
+    	<!-- How to change your own map point
+            1. Go to Google Maps
+            2. Click on your location point
+            3. Click "Share" and choose "Embed map" tab
+            4. Copy only URL and paste it within the src="" field below
+        -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7930.988737388484!2d-79.39913402280507!3d43.66497177219697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34b8f331fd9b%3A0x8d1d9bb6765a76f7!2sUniversity%20of%20Toronto%20-%20St.%20George%20Campus!5e0!3m2!1sen!2sca!4v1595007696005!5m2!1sen!2sca" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+        
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div class="logo">
+                        <a class="logo-ft scroll-top" href="#"><em>CINE</em>METRIC</a>
+                        <p>Copyright &copy; 2020 CineMetric 
+                       <br>Design: TemplateMo.com</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="location">
+                        <h4>Location</h4>
+                        <ul>
+                            <li>Toronto <br>Canada M2J1M5</li>
+                            <li>Toronto <br>Canada M4C4G2</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <div class="contact-info">
+                        <h4>More Info</h4>
+                        <ul>
+                            <li><em>Phone</em>: 040-040-0440</li>
+                            <li><em>Email</em>: cinemetric@cinemetric.co</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <div class="connect-us">
+                        <h4>Get Social with us</h4>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google"></i></a></li>
+                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="/static/js/vendor/bootstrap.min.js"></script>
+
+    <script src="/static/js/plugins.js"></script>
+    <script src="/static/js/main.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // navigation click actions 
+        $('.scroll-link').on('click', function(event){
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop:0}, 'slow');         
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed){
+        var offSet = 50;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop:targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function() { }
+        };
+    }
+    </script>
+</body>
+</html>

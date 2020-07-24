@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "env": {"MONGODB_URI":"mongodb://heroku_2l0h7jrs:ki16k7fgad5h0i188qr4njeg1c@ds157723.mlab.com:57723/heroku_2l0h7jrs"}
+        }
+    ]
+}
