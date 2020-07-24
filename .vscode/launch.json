@@ -10,7 +10,11 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "env": {"MONGODB_URI":"mongodb://heroku_2l0h7jrs:ki16k7fgad5h0i188qr4njeg1c@ds157723.mlab.com:57723/heroku_2l0h7jrs"}
+            "env": {
+                "MONGODB_URI":"mongodb://heroku_2l0h7jrs:ki16k7fgad5h0i188qr4njeg1c@ds157723.mlab.com:57723/heroku_2l0h7jrs",
+                "RUN_MODE": "server"
+            }
+    
         }
     ]
 }

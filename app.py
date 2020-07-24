@@ -3,9 +3,12 @@ from flask import Flask, request, jsonify,render_template
 from joblib import dump, load
 import os
 import pymongo
+import _pickle as cPickle
+
 
 # ENVIRONMENT VARIABLES
 mongo_uri = os.getenv('MONGODB_URI', None)
+run_mode = os.getenv('RUN_MODE','server')
 
 assert(not mongo_uri is None)
 
@@ -13,7 +16,7 @@ assert(not mongo_uri is None)
 #conn = 'mongodb://localhost:27017'
 client = pymongo.MongoClient(mongo_uri)
 # Declare the database
-db = client.movies_db
+db = client.heroku_2l0h7jrs
 # Declare the collection
 collection = db.movie
 
@@ -26,18 +29,29 @@ app.config['UPLOAD_FOLDER'] = image_FOLDER
 model1 = load('svm_model.joblib')
 model2 = load('svm_model_4.joblib')
 
+if run_mode == 'local':
 
-import pandas as pd
-# # train Data
-Data = pd.read_csv("https://imdb-reviews-data.s3.us-east-2.amazonaws.com/IMDB%2BDataset+(1).csv")
+    import pandas as pd
+    # # train Data
+    Data = pd.read_csv("https://imdb-reviews-data.s3.us-east-2.amazonaws.com/IMDB%2BDataset+(1).csv")
 
-from sklearn.feature_extraction.text import TfidfVectorizer
-# Create feature vectors
-vectorizer_1 = TfidfVectorizer(min_df = 5,max_df = 0.8,sublinear_tf = True, use_idf = True)
-train_vectors_1 = vectorizer_1.fit_transform(Data['review'])
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    # Create feature vectors
+    vectorizer_1 = TfidfVectorizer(min_df = 5,max_df = 0.8,sublinear_tf = True, use_idf = True)
+    train_vectors_1 = vectorizer_1.fit_transform(Data['review'])
+    with open(r"vect_1.pickle", "wb") as output_file:
+        cPickle.dump(vectorizer_1, output_file)
 
-vectorizer_2 = TfidfVectorizer(min_df = 5, max_df = 0.8, ngram_range = (2,2), sublinear_tf = True, use_idf = True)
-train_vectors_2 = vectorizer_2.fit_transform(Data['review'])
+    vectorizer_2 = TfidfVectorizer(min_df = 5, max_df = 0.8, ngram_range = (2,2), sublinear_tf = True, use_idf = True)
+    train_vectors_2 = vectorizer_2.fit_transform(Data['review'])
+    with open(r"vect_2.pickle", "wb") as output_file:
+        cPickle.dump(vectorizer_2, output_file)
+
+with open(r"vect_1.pickle", "rb") as input_file:
+    vectorizer_1 = cPickle.load(input_file)
+
+with open(r"vect_2.pickle", "rb") as input_file:
+    vectorizer_2 = cPickle.load(input_file)
 
 @app.route("/")
 def index():
