@@ -1,6 +1,6 @@
 # Movie_Sentimental_Analysis
 
-www.cinemetric.herokuapp.com
+https://cinemetric.herokuapp.com/
 
 Cinemetric is a Movie Review Sentiment Prediction webapp and has visualizations to understand the economic impact of movies in Hollywood over the last 2 decades.
 
